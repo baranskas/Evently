@@ -33,7 +33,6 @@ struct ContentView: View {
             Spacer()
             
             CustomTabBarView(selectedTab: $selectedTab)
-
         }
     }
 }

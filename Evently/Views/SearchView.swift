@@ -9,15 +9,16 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var searchText = ""
-    @State private var isSearching = false
 
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 VStack {
                     SearchBar(searchText: $searchText)
+
                     if (searchText.isEmpty) {
                         CategoryView()
+                            .padding(.top)
                     } else {
                         VStack {
                             ForEach(filteredEvents, id: \.id) { event in

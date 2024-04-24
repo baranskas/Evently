@@ -64,6 +64,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0163612BD3EB9A009DB46F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EBB39EB52BCE43E500AB2E52 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +90,7 @@
 		EBB39EC02BCE43E500AB2E52 /* Evently */ = {
 			isa = PBXGroup;
 			children = (
+				EB0163612BD3EB9A009DB46F /* Models */,
 				EBC72A092BCE53A4002E33B9 /* Components */,
 				EBC72A032BCE4AFF002E33B9 /* Extensions */,
 				EBB39ED22BCE447F00AB2E52 /* Data.swift */,

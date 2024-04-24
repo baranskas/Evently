@@ -30,13 +30,13 @@ struct SearchBar: View {
                             }) {
                                 Image(systemName: "xmark.circle.fill")
                                     .foregroundColor(Color("SecondaryTextColor"))
-                                    .padding(.horizontal, 8)
+                                    .padding(.horizontal, 10)
                             }
                         }
                     }
                 )
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 10)
     }
 }
 

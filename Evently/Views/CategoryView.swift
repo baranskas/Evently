@@ -26,7 +26,7 @@ struct CategoryView: View {
                             .padding()
                         
                         Button(action: {selectedCategory = nil}, label: {
-                            Label("Grįžti", systemImage: "arrowshape.backward.circle.fill")
+                            Label("Grįžti į paiešką", systemImage: "arrowshape.backward.circle.fill")
                                 .foregroundColor(Color("PrimaryTextColor"))
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 8)
@@ -34,14 +34,13 @@ struct CategoryView: View {
                         })
                         .background(Color("BackgroundColor"))
                         .cornerRadius(15)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                     }
-
                     Spacer()
                 } else {
                     VStack (alignment: .leading) {
                         Button(action: {selectedCategory = nil}, label: {
-                            Label("Grįžti", systemImage: "arrowshape.backward.circle.fill")
+                            Label("Grįžti į paiešką", systemImage: "arrowshape.backward.circle.fill")
                                 .foregroundColor(Color("PrimaryTextColor"))
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 8)
@@ -49,7 +48,7 @@ struct CategoryView: View {
                         })
                         .background(Color("BackgroundColor"))
                         .cornerRadius(15)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                         
                         EventsView(events: filteredEvents(for: category))
                     }
@@ -58,11 +57,6 @@ struct CategoryView: View {
 
 
             } else {
-                Text("Kategorijos")
-                    .font(.title)
-                    .bold()
-                    .padding()
-
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(EventCategory.allCases, id: \.self) { category in
                             Button(action: {
@@ -80,7 +74,7 @@ struct CategoryView: View {
                             }
                         }
                     }
-                    .padding(.horizontal)
+                    .padding(.horizontal, 10)
                 }
 
 

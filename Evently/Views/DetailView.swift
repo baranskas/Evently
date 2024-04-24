@@ -10,12 +10,26 @@ import SwiftUI
 struct DetailView: View {
     var event: Event
     @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ScrollView {
             VStack (alignment: .leading) {
-                
                 // image component
-                ImageGallery(event: event)
+                ZStack(alignment: .topLeading) {
+                    ImageGallery(event: event)
+                    
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(Color("SecondaryBackgroundColor"))
+                            .padding()
+                            .background(Color("PrimaryTextColor"))
+                            .clipShape(Circle())
+                    }
+                    .padding()
+                }
                 
                 HStack {
                     Text(event.title)
