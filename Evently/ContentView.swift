@@ -21,7 +21,7 @@ struct ContentView: View {
 
             switch selectedTab {
             case .house:
-                EventsView(events: events)
+                HomeEventsView(events: events)
             case .search:
                 SearchView()
             case .doc:

@@ -48,7 +48,8 @@ struct CustomTabBarView: View {
                     Spacer()
                 }
             }
-            .frame(width: nil, height: 50)
+            .frame(width: nil, height: 40)
+            .padding(.bottom, 10)
             .background(Color("SecondaryBackgroundColor"))
             .background(.black)
             .cornerRadius(10)

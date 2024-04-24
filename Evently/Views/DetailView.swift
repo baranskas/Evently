@@ -25,7 +25,7 @@ struct DetailView: View {
                         Image(systemName: "arrow.left")
                             .foregroundColor(Color("SecondaryBackgroundColor"))
                             .padding()
-                            .background(Color("PrimaryTextColor"))
+                            .background(Color("SecondaryTextColor"))
                             .clipShape(Circle())
                     }
                     .padding()
