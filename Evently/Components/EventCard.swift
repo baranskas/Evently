@@ -17,7 +17,7 @@ struct EventCard: View {
                 .scaledToFill()
                 .frame(maxHeight: 100)
                 .cornerRadius(15, corners: [.topLeft, .topRight])
-            
+
             Text(event.title)
                 .font(.title3)
                 .bold()
@@ -36,9 +36,9 @@ struct EventCard: View {
             .padding(.horizontal)
             .padding(.bottom)
         }
-        .background(Color("BackgroundColor"))
         .foregroundColor(Color("SecondaryTextColor"))
-        .cornerRadius(20)
+        .background(Color("BackgroundColor"))
+        .cornerRadius(15)
         .padding(.horizontal, 10)
     }
 }
