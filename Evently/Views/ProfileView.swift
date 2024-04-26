@@ -6,18 +6,29 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
+    @EnvironmentObject var authService: AuthService
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
-        Button("dismiss profile") {
-            dismiss()
+        if authService.signedIn {
+            SignedProfileView()
+        } else {
+            RegisterView()
         }
-        .font(.title)
     }
 }
 
-#Preview {
-    ProfileView()
+struct ProfileView_Previews: PreviewProvider {
+    @StateObject static var authService = AuthService()
+
+    static var previews: some View {
+        if authService.signedIn {
+            SignedProfileView()
+        } else {
+            RegisterView()
+        }
+    }
 }
