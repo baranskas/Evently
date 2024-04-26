@@ -52,10 +52,7 @@ struct CategoryView: View {
                         
                         EventsView(events: filteredEvents(for: category))
                     }
-
                 }
-
-
             } else {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(EventCategory.allCases, id: \.self) { category in
@@ -66,18 +63,16 @@ struct CategoryView: View {
                             }) {
                                 Label(category.rawValue, systemImage: category.systemImageName)
                                     .padding()
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                                    .frame(maxWidth: .infinity, minHeight: 75, alignment: .leading)
                                     .background(Color("BackgroundColor"))
                                     .foregroundColor(Color("PrimaryTextColor"))
-                                    .cornerRadius(8)
+                                    .cornerRadius(10)
                                     .font(.callout)
                             }
                         }
                     }
                     .padding(.horizontal, 10)
                 }
-
-
         }
     }
     func filteredEvents(for category: EventCategory) -> [Event] {
