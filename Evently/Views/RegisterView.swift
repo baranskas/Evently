@@ -17,33 +17,49 @@ struct RegisterView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Email", text: $email)
-                        .textFieldStyle(.roundedBorder)
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(.roundedBorder)
+                    Text("Registracija")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryTextColor"))
                     
-                    Button("Create an Account") {
+                    TextField("Email", text: $email)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 10)
+                        .background(Color("BackgroundColor"))
+                        .cornerRadius(15)
+                    
+                    SecureField("Password", text: $password)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 10)
+                        .background(Color("BackgroundColor"))
+                        .cornerRadius(15)
+                        .padding(.vertical, 5)
+                    
+                    Button("Kurti paskyrą") {
                         authService.regularCreateAccount(email: email, password: password)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 15)
+                    .foregroundColor(Color("SecondaryBackgroundColor"))
+                    .background(Color("SecondaryTextColor"))
+                    .cornerRadius(15)
                     
                     HStack {
-                        Text("Already have an account? ")
+                        Text("Turite paskyrą?")
                         
-                        NavigationLink(destination: LoginView()) {
-                            Text("Login").foregroundColor(.blue)
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("Prisijungti").foregroundColor(Color("PrimaryTextColor"))
                         }
-                    }.frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top)
                 }
+                .cornerRadius(15)
                 .padding()
             }
         }
-        
-        Button("dismiss view") {
-            dismiss()
-        }
-        .font(.title)
+        .navigationBarBackButtonHidden()
     }
 }
 

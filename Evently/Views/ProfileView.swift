@@ -16,7 +16,7 @@ struct ProfileView: View {
         if authService.signedIn {
             SignedProfileView()
         } else {
-            RegisterView()
+            LoginView()
         }
     }
 }
@@ -28,7 +28,7 @@ struct ProfileView_Previews: PreviewProvider {
         if authService.signedIn {
             SignedProfileView()
         } else {
-            RegisterView()
+            LoginView()
         }
     }
 }

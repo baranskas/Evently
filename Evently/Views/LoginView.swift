@@ -17,32 +17,46 @@ struct LoginView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Email", text: $email)
-                        .textFieldStyle(.roundedBorder)
-                
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(.roundedBorder)
+                    Text("Prisijungti")
+                        .font(.largeTitle)
+                        .foregroundColor(Color("PrimaryTextColor"))
                     
-                    Button("Login") {
+                    TextField("Email", text: $email)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 10)
+                        .background(Color("BackgroundColor"))
+                        .cornerRadius(15)
+                    
+                    SecureField("Password", text: $password)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 10)
+                        .background(Color("BackgroundColor"))
+                        .cornerRadius(15)
+                        .padding(.vertical, 5)
+                    
+                    Button("Prisijungti") {
                         authService.regularSignIn(email: email, password: password) { error in
                             if let e = error {
                                 print(e.localizedDescription)
                             }
                         }
                     }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    
+                    .padding(.vertical, 15)
+                    .padding(.horizontal, 15)
+                    .foregroundColor(Color("SecondaryBackgroundColor"))
+                    .background(Color("SecondaryTextColor"))
+                    .cornerRadius(15)
+
                     HStack {
-                        Text("Don't have an account?")
+                        Text("Neturite paskyros? ")
                         
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("Create Account").foregroundColor(.blue)
+                        NavigationLink(destination: RegisterView()) {
+                            Text("Registruotis").foregroundColor(Color("PrimaryTextColor"))
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top)
+                    
                 }
                 .padding()
             }

@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct SavedEventsView: View {
+    @EnvironmentObject var authService: AuthService
+    
     var body: some View {
-        Text("Saved Events")
-            .font(.title)
-            .bold()
+        if authService.signedIn {
+            SignedSavedEventsView()
+        } else {
+            LoginView()
+        }
     }
 }
 
-#Preview {
-    SavedEventsView()
+struct SavedEventsView_Previews: PreviewProvider {
+    @StateObject static var authService = AuthService()
+
+    static var previews: some View {
+        if authService.signedIn {
+            SignedSavedEventsView()
+        } else {
+            LoginView()
+        }
+    }
 }

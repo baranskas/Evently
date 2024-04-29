@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct UploadEventView: View {
+    @EnvironmentObject var authService: AuthService
+    
     var body: some View {
-        Text("Post Event")
-            .font(.title)
-            .bold()
+        if authService.signedIn {
+            SignedUploadEventView()
+        } else {
+            LoginView()
+        }
     }
 }
 
-#Preview {
-    UploadEventView()
+struct UploadEventView_Previews: PreviewProvider {
+    @StateObject static var authService = AuthService()
+
+    static var previews: some View {
+        if authService.signedIn {
+            SignedUploadEventView()
+        } else {
+            LoginView()
+        }
+    }
 }

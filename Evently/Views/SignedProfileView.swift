@@ -10,14 +10,14 @@ import FirebaseAuth
 
 struct SignedProfileView: View {
     @EnvironmentObject var authService: AuthService
-    let userID = Auth.auth().currentUser!.uid
+    let user = Auth.auth().currentUser!
     
     var body: some View {
             NavigationStack {
-                Text("Logged in")
+                Text("Mano Paskyra")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
-                            Button("Log out") {
+                            Button("Atsijungti") {
                                 print("Log out tapped!")
                                 authService.regularSignOut { error in
                                     
@@ -28,7 +28,8 @@ struct SignedProfileView: View {
                             }
                         }
                     }
-                Text(userID)
+                Text(user.email!)
+                Text(user.uid)
             }
         }
 }
